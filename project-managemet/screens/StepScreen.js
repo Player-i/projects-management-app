@@ -15,7 +15,7 @@ const StepScreen = ({ route }) => {
   const [StepDate, setStepDate] = useState();
   const navigation = useNavigation();
   const [formData, setFormData] = useState({
-    is_done: false,
+    is_done: false, 
     description: "",
     file: null,
     file2: null,
