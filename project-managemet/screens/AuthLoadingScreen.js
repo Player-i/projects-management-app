@@ -10,10 +10,11 @@ const AuthLoadingScreen = () => {
     const checkUserEmail = async () => {
       try {
         const userEmail = await AsyncStorage.getItem('userEmail');
+        const isUserProjectManager = await AsyncStorage.getItem('isProjectManager')
   
         if (userEmail) {
           // If there is a saved email, navigate to the Home screen
-          navigation.navigate('Home', { email: userEmail });
+          navigation.navigate('Home', { email: userEmail, isProjectManager: isUserProjectManager });
         } else {
           // If there is no saved email, navigate to the Login screen
           navigation.navigate('Login');

@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const HomeScreen = ({ route }) => {
   const [email, setEmail] = useState(route.params?.email || '');
+  const [isUserProjectManager, setIsUserProjectManager] = useState(route.params?.isProjectManager || false);
   const [projects, setProjects] = useState([]);
   const navigation = useNavigation();
 
@@ -55,6 +56,7 @@ const HomeScreen = ({ route }) => {
       console.log(response.data);
       // Handle successful logout, update UI, navigate to the login screen, etc.
       await AsyncStorage.removeItem('userEmail');
+      await AsyncStorage.removeItem('isProjectManager');
       navigation.navigate('Login');
     } catch (error) {
       console.error('Error during logout:', error);

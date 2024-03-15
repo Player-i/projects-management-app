@@ -12,27 +12,31 @@ const LoginScreen = ({ navigation }) => {
   const handleLogin = async () => {
     try {
       const response = await axios.post('http://10.55.5.124:8000/api/email-login/', {
-        username: email, // Assuming email is the username for your login
+        username: email,
         password: password,
       });
-      console.log(response.data);
-      console.log(response.data.detail)
-      if (response.data.detail == 'Login successful') {
-
-        // Save user email to login automatically:
+  
+      if (response.data.detail === 'Login successful') {
+        // Save user email and project manager status to AsyncStorage
         await AsyncStorage.setItem('userEmail', email);
-
+        
+        // Check if the user is a project manager
+        const isProjectManagerResponse = await axios.get(`http://10.55.5.124:8000/api/is_user_project_manager/${email}/`);
+        const isProjectManager = isProjectManagerResponse.data.is_project_manager; // Access the boolean value        console.log(isProjectManager)
+        console.log(isProjectManagerResponse.data)
+  
+        await AsyncStorage.setItem('isProjectManager', String(isProjectManager));
+  
         // Navigate to the Home screen upon successful login
         navigation.navigate('Home', { email: email });
       }
-      // Handle successful login, update UI, navigate to the next screen, etc.
-      // For example, you can use navigation libraries like React Navigation
-      // navigation.navigate('Home');
+      // Handle other responses or navigate to an error screen if needed
     } catch (error) {
       console.error('Error during login:', error);
       // Handle login error, show error message, etc.
     }
   };
+  
 
   const handleNavigateToRegister = () => {
     navigation.navigate('Register');
