@@ -98,6 +98,9 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     alignItems: 'center', // Center content horizontally within the ScrollView
+    paddingBottom: 200, // Add padding to the bottom of the ScrollVi
+
+    flexGrow: 1, 
   },
   projectContainer: {
     width: 300, // Set a fixed width for the square container

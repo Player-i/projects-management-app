@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, Image, TouchableOpacity, ScrollView, SafeAreaView, Switch } from 'react-native';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
+import backIcon from '../assets/return-apple-icon.png';
 
 const ProjectScreen = ({ route }) => {
   const { projectId, email } = route.params;
@@ -28,26 +29,37 @@ const ProjectScreen = ({ route }) => {
     // Navigate to the StepScreen with the selected step ID
     navigation.navigate('Step', { stepId: stepId, projectName: projectName, email: email, projectId: projectId });
   };
+    const backToHome = () => {
+    console.log("Navigate")
+    navigation.navigate('Home');
+  };
 
   return (
-    <View>
-    {/* Project Details */}
-    <View style={styles.projectContainer}>
+    <SafeAreaView>
+         <TouchableOpacity style={styles.logoutButton} onPress={backToHome}>
+      <Image source={backIcon} style={{ width: 20, height: 20 }} />
+    </TouchableOpacity>
+    <SafeAreaView style={styles.projectContainer}>
+
       <Text style={styles.projectTitle}>{project && project.name}</Text>
       <Text style={styles.projectDescription}>{project && project.description}</Text>
+      <Text style={styles.projectDescription}> Equipment & Supplies: {project && project.equipment}</Text>
+      <Text style={styles.projectDescription}>Vehicle: {project && project.vehicle}</Text>
       {/* Display other project details as needed */}
-    </View>
+    </SafeAreaView>
 
     {/* Steps */}
-    <View style={styles.sectionContainer}>
+    <SafeAreaView style={styles.sectionContainer}>
       <Text style={styles.sectionTitle}></Text>
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
+      <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContainer}>
         {steps &&
           steps.map((step) => (
             <TouchableOpacity key={step.id} onPress={() => handleStepClick(step.id, project.name)}>
               <View style={styles.stepContainer}>
                 <Text style={styles.containerText}>Assignment: {step.description}</Text>
                 <Text style={styles.containerText}>Assigned to: {step.assigned_to}</Text>
+                <Text style={{ fontSize: 18, marginBottom: 5, fontWeight: 'bold' }}>Assignment Finished</Text>
+                <Switch style={{marginBottom: 10}} value={step.is_done} disabled />
                 {/* Display other step details as needed */}
 
                   {/* Display images if available */}
@@ -62,8 +74,8 @@ const ProjectScreen = ({ route }) => {
 
           ))}
         </ScrollView>
-    </View>
-  </View>
+    </SafeAreaView>
+  </SafeAreaView>
 );
 };
 
@@ -77,12 +89,15 @@ const styles = {
 projectContainer: {
   alignItems: 'center',
   marginBottom: 20,
+  marginTop: 40,
   paddingTop: 80,
 },
 projectTitle: {
   fontSize: 20,
   fontWeight: 'bold',
   marginBottom: 10,
+  textAlign: 'center',
+  
 },
 
 projectDescription: {
@@ -91,14 +106,20 @@ projectDescription: {
 },
 sectionContainer: {
   marginBottom: 20,
+  
 },
 sectionTitle: {
   fontSize: 18,
   fontWeight: 'bold',
 },
 scrollContainer: {
-  alignItems: 'center', // Center content horizontally within the ScrollView
+  alignItems: 'center',
+  paddingBottom: 350, // Add padding to the bottom of the ScrollVi
+
+  flexGrow: 1, 
 },
+scrollView: {
+  },
 stepContainer: {
   width: 300, // Set a fixed width for the square container
   height: 300, // Set a fixed height for the square container
@@ -126,6 +147,13 @@ image: {
   height: 100,
   margin: 5, // Add margin to separate images
 },
+logoutButton: {
+  position: 'absolute',
+  top: 50,
+  right: 10,
+},
+
+
 
 };
 export default ProjectScreen;
