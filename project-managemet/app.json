@@ -4,7 +4,7 @@
     "slug": "project-managemet",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -16,7 +16,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "facilollc-project-management"
+      "bundleIdentifier": "com.facilo.management"
     },
     "android": {
       "adaptiveIcon": {
