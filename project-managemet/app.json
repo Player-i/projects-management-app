@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "project-managemet",
+    "name": "Facilo",
     "slug": "project-managemet",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -16,7 +16,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.facilo.management"
+      "bundleIdentifier": "com.facilol.management"
     },
     "android": {
       "adaptiveIcon": {
