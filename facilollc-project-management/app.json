@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "project-managemet",
-    "slug": "project-managemet",
+    "name": "facilollc-project-management",
+    "slug": "facilollc-project-management",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -16,7 +16,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "project-management"
+      "bundleIdentifier": "facilollc-project-management"
     },
     "android": {
       "adaptiveIcon": {
