@@ -18,7 +18,7 @@ const RegisterScreen = ({ navigation }) => {
     }
 
     try {
-      const response = await axios.post('http://10.55.5.124:8000/api/user-registration/', {
+      const response = await axios.post('https://www.facilo.co/api/user-registration/', {
         username: username,
         email: email,
         password1: password1,

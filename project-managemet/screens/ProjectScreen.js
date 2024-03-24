@@ -12,7 +12,7 @@ const ProjectScreen = ({ route }) => {
   useEffect(() => {
     const fetchProjectDetails = async () => {
       try {
-        const response = await axios.get(`http://10.55.5.124:8000/api/project-details/${projectId}/${email}/`);
+        const response = await axios.get(`https://www.facilo.co/api/project-details/${projectId}/${email}/`);
         setProjectDetails(response.data);
         console.log(response.data);
       } catch (error) {
@@ -64,10 +64,10 @@ const ProjectScreen = ({ route }) => {
 
                   {/* Display images if available */}
                   <View style={styles.imageContainer}>
-                    {step.file && <Image source={{ uri: `http://10.55.5.124:8000${step.file}` }} style={styles.image} />}
-                    {step.file2 && <Image source={{ uri: `http://10.55.5.124:8000${step.file2}` }} style={styles.image} />}
-                    {step.file3 && <Image source={{ uri: `http://10.55.5.124:8000${step.file3}` }} style={styles.image} />}
-                    {step.file4 && <Image source={{ uri: `http://10.55.5.124:8000${step.file4}` }} style={styles.image} />}
+                    {step.file && <Image source={{ uri: `https://www.facilo.co${step.file}` }} style={styles.image} />}
+                    {step.file2 && <Image source={{ uri: `https://www.facilo.co${step.file2}` }} style={styles.image} />}
+                    {step.file3 && <Image source={{ uri: `https://www.facilo.co${step.file3}` }} style={styles.image} />}
+                    {step.file4 && <Image source={{ uri: `https://www.facilo.co${step.file4}` }} style={styles.image} />}
                   </View>
               </View>
             </TouchableOpacity>
@@ -143,8 +143,8 @@ imageContainer: {
   marginTop: 10,
 },
 image: {
-  width: 100,
-  height: 100,
+  width: 60,
+  height: 50,
   margin: 5, // Add margin to separate images
 },
 logoutButton: {
