@@ -14,12 +14,12 @@ const AppContainer = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="AuthLoading">
-        <Stack.Screen name="AuthLoading" component={AuthLoadingScreen} />
-        <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Register" component={RegisterScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Home" component={HomeScreen}  options={{ headerShown: false }} />
-        <Stack.Screen name="Project" component={ProjectScreen} options={{ headerShown: false }} /> 
-        <Stack.Screen name="Step" component={StepScreen} options={{ headerShown: false }} /> 
+        <Stack.Screen name="AuthLoading" component={AuthLoadingScreen} options={{ headerShown: false, gestureEnabled: false }} />
+        <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false, gestureEnabled: false }} />
+        <Stack.Screen name="Register" component={RegisterScreen} options={{ headerShown: false, gestureEnabled: false }} />
+        <Stack.Screen name="Home" component={HomeScreen}  options={{ headerShown: false, gestureEnabled: false }} />
+        <Stack.Screen name="Project" component={ProjectScreen} options={{ headerShown: false, gestureEnabled: false }} /> 
+        <Stack.Screen name="Step" component={StepScreen} options={{ headerShown: false, gestureEnabled: false }} /> 
 
       </Stack.Navigator>
     </NavigationContainer>

@@ -29,7 +29,7 @@ const AuthLoadingScreen = () => {
 
   return (
     <View>
-      <ActivityIndicator size="large" color="#0000ff" />
+      <ActivityIndicator size="large" color="#206422" />
     </View>
   );
 };
