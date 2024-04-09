@@ -86,6 +86,7 @@ useEffect(() => {
   };
 
   const handleEditStep = async () => {
+    navigation.navigate('Home');
     try {
       const dataToSend = {
         is_done: formData.is_done.toString(),
@@ -109,7 +110,6 @@ useEffect(() => {
     } catch (error) {
       console.error('Error updating step:', error);
     }
-    navigation.navigate('Home');
   };
 
   return (
