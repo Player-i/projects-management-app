@@ -18,6 +18,8 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.facilol.management",
       "infoPlist": {
+        "NSCameraUsageDescription": "This app utilizes your device's camera to capture images for task management and communication.",
+        
         "NSPrivacyAccessedAPITypes": [
           {
             "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategorySystemBootTime",

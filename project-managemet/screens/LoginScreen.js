@@ -69,9 +69,9 @@ const LoginScreen = ({ navigation }) => {
         </TouchableOpacity>
         <View style={styles.divider} />
 
-        <TouchableOpacity style={styles.signUpButton} onPress={handleNavigateToRegister}>
+        {/* <TouchableOpacity style={styles.signUpButton} onPress={handleNavigateToRegister}>
           <Text style={styles.signUpButtonText}>Do not have an account? <Text style={styles.signUpBoldText}>Sign up</Text></Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </View>
   );
