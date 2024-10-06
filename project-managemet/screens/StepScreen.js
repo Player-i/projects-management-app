@@ -108,7 +108,7 @@ const StepScreen = ({ route }) => {
     };
 
     return ( <
-        View style = { styles.containervv } >
+        View style = { styles.container } >
         <
         TouchableOpacity style = { styles.logoutButton }
         onPress = { backToHome } >
