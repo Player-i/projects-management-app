@@ -28,7 +28,7 @@ useEffect(() => {
   const fetchData = async () => {
     try {
       // Fetch step details
-      const stepResponse = await axios.get(`https://www.facilo.co/api/get_step_details/${stepId}/`);
+      const stepResponse = await axios.get(`http://10.55.6.135:8000/api/get_step_details/${stepId}/`);
       setStepDetails(stepResponse.data);
       const step  = stepResponse.data;
       const updatedFormData = {
@@ -95,7 +95,7 @@ useEffect(() => {
         }
       });
 
-      const response = await axios.post(`https://www.facilo.co/api/edit-step/${stepId}/`, dataToSend, {
+      const response = await axios.post(`http://10.55.6.135:8000/api/edit-step/${stepId}/`, dataToSend, {
         headers: {
           'Content-Type': 'application/json',
         },

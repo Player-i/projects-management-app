@@ -27,7 +27,7 @@ const HomeScreen = ({ route }) => {
         }
   
         if (userEmail) {
-          const response = await axios.get(`https://www.facilo.co/api/get-user-projects/${userEmail}/`);
+          const response = await axios.get(`http://10.55.6.135:8000/api/get-user-projects/${userEmail}/`);
           setProjects(response.data);
           console.log(response.data);
   
@@ -52,7 +52,7 @@ const HomeScreen = ({ route }) => {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.get(`https://www.facilo.co/api/logout/${email}/`);
+      const response = await axios.get(`http://10.55.6.135:8000/api/logout/${email}/`);
       console.log(response.data);
       // Handle successful logout, update UI, navigate to the login screen, etc.
       await AsyncStorage.removeItem('userEmail');
@@ -60,6 +60,9 @@ const HomeScreen = ({ route }) => {
       navigation.navigate('Login');
     } catch (error) {
       console.error('Error during logout:', error);
+      await AsyncStorage.removeItem('userEmail');
+      await AsyncStorage.removeItem('isProjectManager');
+      navigation.navigate('Login');
       // Handle logout error, show error message, etc.
     }
   };

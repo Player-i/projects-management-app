@@ -11,7 +11,7 @@ const LoginScreen = ({ navigation }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('https://www.facilo.co/api/email-login/', {
+      const response = await axios.post('http://10.55.6.135:8000/api/email-login/', {
         username: email,
         password: password,
       });
@@ -21,7 +21,7 @@ const LoginScreen = ({ navigation }) => {
         await AsyncStorage.setItem('userEmail', email);
         
         // Check if the user is a project manager
-        const isProjectManagerResponse = await axios.get(`https://www.facilo.co/api/is_user_project_manager/${email}/`);
+        const isProjectManagerResponse = await axios.get(`http://10.55.6.135:8000/api/is_user_project_manager/${email}/`);
         const isProjectManager = isProjectManagerResponse.data.is_project_manager; // Access the boolean value        console.log(isProjectManager)
         console.log(isProjectManagerResponse.data)
   
